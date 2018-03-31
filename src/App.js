@@ -17,6 +17,14 @@ function SearchForm(props) {
   );
 }
 
+function JSONOutput(props) {
+  return (
+    <div>
+      <p>{JSON.stringify(props.result)}</p>
+    </div>
+  );
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +65,9 @@ class App extends React.Component {
           handleSubmit={(e) => this.handleSubmit(e)}
           handleChange={(e) => this.handleChange(e)}
         />
-        {JSON.stringify(this.state.result)}
+        <JSONOutput
+          result={this.state.result}
+        />
       </div>
     );
   }
